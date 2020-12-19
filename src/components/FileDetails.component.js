@@ -2,12 +2,10 @@ import { useEffect, useState } from "react";
 
 function FileDetails(props) {
     const [languages, setLanguages] = useState({});
-    const [id, setId] = useState('');
-    const [userCommit, setUserCommits] = useState([]);
     useEffect(() => {
         const foundLanguages = [];
         const foundFilesMapping = {};
-        Object.keys(props.files).map((fileKey, index) => {
+        Object.keys(props.files).map((fileKey) => {
             if (foundLanguages.includes(props.files[fileKey].language)) {
                 foundFilesMapping[props.files[fileKey].language].push(props.files[fileKey].filename)
             } else {
@@ -25,7 +23,9 @@ function FileDetails(props) {
                     languages && (
                         Object.keys(languages).map((keyItem, index) => {
                             return (
-                                <li className="list-group-item custom-font" key={index}><b className='language-name'>{keyItem} :</b> {languages[keyItem].join(', ')} </li>
+                                <li className="list-group-item custom-font" key={index}>
+                                    <b className='language-name'>{keyItem} : </b>  {languages[keyItem].join(', ')}
+                                </li>
                             )
                         })
                     )

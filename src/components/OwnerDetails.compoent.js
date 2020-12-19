@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import { getGistForked } from './../api/gist-api';
-import moment from 'moment'
-
 
 function OwnerDetails(props) {
-  const [id, setId] = useState('');
   const [userCommit, setUserCommits] = useState([]);
 
   useEffect(async () => {
@@ -18,12 +15,19 @@ function OwnerDetails(props) {
   }, [props.id])
   return (
     <div className='col-12'>
-      <ul className="list-group list-group-flush">
+      <ul className="list-group">
         {
           userCommit && (
             userCommit.map((commits, index) => {
               return (
-                <li className="list-group-item custom-font" key={index}><b>Modified By :</b>  <img src={commits.user.avatar_url} className='avatar ml-3 mr-3' /> <b>{commits.user.login}</b> </li>
+                <li className="list-group-item custom-font avatar-li" key={index}>
+                  <div className="center">
+                    <img src={commits.user.avatar_url} className='avatar ml-3 mr-3' />
+                  </div>
+                  <div className="center mt-2">
+                    <b>{commits.user.login}</b>
+                  </div>
+                </li>
               )
             })
           )

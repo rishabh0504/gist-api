@@ -24,7 +24,7 @@ function App() {
       <Header />
       {/* Input container Part */}
 
-      <div className="container filter mt-4 mb-4">
+      <div className="col-12 filter mt-4 mb-4 ml-3 mr-3">
         <div className="col-3">
           <input
             type="text"
@@ -35,22 +35,19 @@ function App() {
         </div>
       </div>
 
-
       {
         gists && (
           gists.map((eachGist, index) => {
             return (
-              <div className="container" key={index}>
+              <div className="col-12 main-container" key={index}>
                 <div className="col-12 mt-3 mb-3">
                   <div className="card">
                     <div className="card-body d-flex">
-                      <div className="col-6 ml-2 mr-2">
-                        <div className="jumbotron">
-                          <p>Gist Id : {eachGist.id}</p>
-                          <OwnerDetails id={eachGist.id} />
-                        </div>
+                      <div className="col-4 ml-2 mr-2">
+                        <p className='text-success text-center'>Last 3 forked users</p>
+                        <OwnerDetails id={eachGist.id} />
                       </div>
-                      <div className="col-6 ml-2 mr-2">
+                      <div className="col-8 ml-2 mr-2">
                         <FileDetails files={eachGist.files} id={eachGist.id} />
                       </div>
                     </div>
@@ -61,15 +58,14 @@ function App() {
           })
         )
       }
+
       {
         !gists.length > 0 && (
-          <div className="col-12">
+          <div className="col-12 nothing-found">
             <h5 className="text-info text-center">Nothing Found..!!!</h5>
           </div>
         )
       }
-
-
     </div>
   );
 }
