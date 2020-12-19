@@ -3,6 +3,7 @@ import { getGist } from './api/gist-api';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import FileDetails from './components/FileDetails.component';
+import OwnerDetails from './components/OwnerDetails.compoent';
 
 function App() {
   const [username, setUsername] = useState("");
@@ -10,8 +11,8 @@ function App() {
 
   useEffect(async () => {
     if (!!username) {
-      const gistsDetail = await getGist(username);
-      setGists(gistsDetail);
+      //const gistsDetail = await getGist(username);
+      //setGists(gistsDetail);
     }
   }, [username]);
 
@@ -20,7 +21,7 @@ function App() {
 
       {/* Header Part */}
       <div className='header theme-color'>
-        Header
+        GithubGists
       </div>
 
       {/* Input container Part */}
@@ -42,17 +43,12 @@ function App() {
               <div className="container" key={index}>
                 <div className="col-12 mt-3 mb-3">
                   <div className="card">
-                    <div className="card-body">
+                    <div className="card-body d-flex">
                       <div className="col-6">
-                        <ul>
-                          {
-                            eachGist && eachGist.files && (
-                              Object.keys(eachGist.files).map((fileKey, index) => {
-                                return (<li key={index}> {eachGist.files[fileKey].language} :{eachGist.files[fileKey].filename} </li>)
-                              })
-                            )
-                          }
-                        </ul>
+                        <div className="jumbotron">
+                          <p>Gist Id : {eachGist.id}</p>
+                          <OwnerDetails id={eachGist.id} />
+                        </div>
                       </div>
                       <div className="col-6">
                         <FileDetails files={eachGist.files} id={eachGist.id} />
@@ -65,6 +61,15 @@ function App() {
           })
         )
       }
+      {
+        !gists.length > 0 && (
+          <div className="col-12">
+            <h5 className="text-info text-center">Nothing Found..!!!</h5>
+          </div>
+        )
+      }
+
+
     </div>
   );
 }

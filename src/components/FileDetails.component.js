@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { getGistForked } from './../api/gist-api';
-
 
 function FileDetails(props) {
     const [languages, setLanguages] = useState({});
     const [id, setId] = useState('');
+    const [userCommit, setUserCommits] = useState([]);
     useEffect(() => {
         const foundLanguages = [];
         const foundFilesMapping = {};
@@ -18,20 +17,15 @@ function FileDetails(props) {
         })
         setLanguages(foundFilesMapping);
     }, [props.files]);
-
-    useEffect(async () => {
-        const forkedData = await getGistForked(id);
-        // Couldn't 
-        // console.log('forkedData', forkedData);
-    }, [props.id])
     return (
-        <div >
-            <ul>
+        <div className='col-12'>
+            <p className="text-success custom-sizing">Modified files</p>
+            <ul className="list-group">
                 {
                     languages && (
                         Object.keys(languages).map((keyItem, index) => {
                             return (
-                                <li key={index}>{keyItem} : {languages[keyItem].join(', ')} </li>
+                                <li className="list-group-item custom-font" key={index}><b className='language-name'>{keyItem} :</b> {languages[keyItem].join(', ')} </li>
                             )
                         })
                     )
