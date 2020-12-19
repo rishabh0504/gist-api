@@ -43,7 +43,7 @@
   justify-content: flex-end;
 }
 
-.nothing-found, .main-container{
+.nothing-found, .main-container, .bg-color{
   background: #efefef;
 }
 .nothing-found{

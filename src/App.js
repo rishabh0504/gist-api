@@ -41,7 +41,7 @@ function App() {
             return (
               <div className="col-12 main-container" key={index}>
                 <div className="col-12 mt-3 mb-3">
-                  <div className="card">
+                  <div className="card bg-color">
                     <div className="card-body d-flex">
                       <div className="col-4 mt-4 mt-20 mrl-20">
                         <OwnerDetails id={eachGist.id} />
