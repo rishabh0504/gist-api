@@ -1,3 +1,4 @@
+
 .header{
   padding: 15px 25px;
   display: flex;
@@ -33,3 +34,13 @@
   height: 50px;
   border-radius: 50%;
 }
+.title{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.change-direction{
+  display: flex;
+  justify-content: flex-end;
+}
+

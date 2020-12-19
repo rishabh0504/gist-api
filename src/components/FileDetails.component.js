@@ -20,7 +20,7 @@ function FileDetails(props) {
     return (
         <div className='col-12'>
             <p className="text-success custom-sizing">Modified files</p>
-            <ul className="list-group">
+            <ul className="list-group list-group-flush">
                 {
                     languages && (
                         Object.keys(languages).map((keyItem, index) => {

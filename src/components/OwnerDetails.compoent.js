@@ -8,7 +8,6 @@ function OwnerDetails(props) {
   const [userCommit, setUserCommits] = useState([]);
 
   useEffect(async () => {
-    console.log(props.id)
     const forkedData = await getGistForked(props.id);
     forkedData.sort((a, b) => {
       return new Date(b.committed_at) - new Date(a.committed_at);
@@ -19,7 +18,7 @@ function OwnerDetails(props) {
   }, [props.id])
   return (
     <div className='col-12'>
-      <ul className="list-group">
+      <ul className="list-group list-group-flush">
         {
           userCommit && (
             userCommit.map((commits, index) => {
