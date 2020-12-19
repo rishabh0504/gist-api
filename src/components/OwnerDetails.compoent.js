@@ -8,7 +8,8 @@ function OwnerDetails(props) {
   const [userCommit, setUserCommits] = useState([]);
 
   useEffect(async () => {
-    const forkedData = await getGistForked(id);
+    console.log(props.id)
+    const forkedData = await getGistForked(props.id);
     forkedData.sort((a, b) => {
       return new Date(b.committed_at) - new Date(a.committed_at);
     });
