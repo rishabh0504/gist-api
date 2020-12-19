@@ -17,20 +17,24 @@ function FileDetails(props) {
     }, [props.files]);
     return (
         <div className='col-12'>
-            <p className="text-success custom-sizing">Modified files</p>
-            <ul className="list-group list-group-flush">
-                {
-                    languages && (
-                        Object.keys(languages).map((keyItem, index) => {
-                            return (
-                                <li className="list-group-item custom-font" key={index}>
-                                    <b className='language-name'>{keyItem} : </b>  {languages[keyItem].join(', ')}
-                                </li>
+            <p className="text-success"> <b>Modified files</b></p>
+            <div className="card">
+                <div className="card-body d-flex">
+                    <ul className="list-group list-group-flush">
+                        {
+                            languages && (
+                                Object.keys(languages).map((keyItem, index) => {
+                                    return (
+                                        <li className="list-group-item custom-font" key={index}>
+                                            <b className='language-name'>{keyItem} : </b>  {languages[keyItem].join(', ')}
+                                        </li>
+                                    )
+                                })
                             )
-                        })
-                    )
-                }
-            </ul>
+                        }
+                    </ul>
+                </div>
+            </div>
         </div>
     )
 }
