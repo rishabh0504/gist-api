@@ -43,10 +43,10 @@ function App() {
                 <div className="col-12 mt-3 mb-3">
                   <div className="card bg-color">
                     <div className="card-body d-flex">
-                      <div className="col-4 mt-4 mt-20 mrl-20">
+                      <div className="col-4 mrl-20">
                         <OwnerDetails id={eachGist.id} />
                       </div>
-                      <div className="col-7 mt-4">
+                      <div className="col-8 mrl-20">
                         <FileDetails files={eachGist.files} id={eachGist.id} />
                       </div>
                     </div>
