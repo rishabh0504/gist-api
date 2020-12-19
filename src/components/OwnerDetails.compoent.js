@@ -9,7 +9,6 @@ function OwnerDetails(props) {
     forkedData.sort((a, b) => {
       return new Date(b.committed_at) - new Date(a.committed_at);
     });
-    // Get 3 last commits
     const lastCommits = forkedData.splice(0, 3);
     setUserCommits(lastCommits);
   }, [props.id])
@@ -23,10 +22,10 @@ function OwnerDetails(props) {
               return (
                 <li className="list-group-item custom-font avatar-li" key={index}>
                   <div className="center">
-                    <img src={commits.user.avatar_url} className='avatar ml-3 mr-3' />
+                    <img src={commits.owner.avatar_url} className='avatar ml-3 mr-3' />
                   </div>
                   <div className="center mt-2">
-                    <b>{commits.user.login}</b>
+                    <b>{commits.owner.login}</b>
                   </div>
                 </li>
               )
@@ -34,6 +33,14 @@ function OwnerDetails(props) {
           )
         }
       </ul>
+
+      {
+        !userCommit.length > 0 && (
+          <div className="col-12 no-forked">
+            <h5 className="text-info text-center">Nobody forked..!!!</h5>
+          </div>
+        )
+      }
     </div>
   )
 }

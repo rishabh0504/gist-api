@@ -17,7 +17,7 @@ export const getGist = async (username) => {
 
 export const getGistForked = async (gistId) => {
     try {
-        const data = await axios.get(`gists/${gistId}/commits`);
+        const data = await axios.get(`gists/${gistId}/forks`);
         return data.data;
     } catch (error) {
         return []

@@ -62,5 +62,10 @@
   margin-left: 20px;
   margin-right: 20px;
 }
+.no-forked{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
 
 
